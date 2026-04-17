@@ -210,3 +210,4 @@ marimo/_lsp/
 __marimo__/
 /LLM_APP.pyproj
 /LLM_APP.slnx
+/.gradio
