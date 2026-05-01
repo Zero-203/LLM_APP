@@ -1,34 +1,14 @@
-PROVIDERS = {
-    "AutoDL": {
-        "base_url": "https://www.autodl.art/api/v1",
-        "models": {
-            "gpt-5.4": "gpt-5.4",
-            "gpt-5.4-nano": "gpt-5.4-nano",
-            "qwen3.6-plus": "qwen3.6-plus",
-            "DeepSeek-V3.2": "DeepSeek-V3.2"
-        },
-        "auth_type": "header",
-        "auth_name": "Authorization",
-    },
-    "DeepSeek": {
-        "base_url": "https://api.deepseek.com",
-        "models": {
-            "DeepSeek-V3.2": "deepseek-chat",
-        },
-        "auth_type": "query",
-        "auth_name": "api_key",
-    },
-    "Aliyun": {
-        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "models": {
-            "qwen3.6-plus": "qwen3.6-plus",
-            "qwen3.6-flash": "qwen3.6-flash",
-            "qwen3.6-max": "qwen3.6-max"
-        },
-        "auth_type": "header",
-        "auth_name": "api_key",
-    }
-}
+import json
+import os
+
+
+def load_providers():
+    config_path = os.path.join(os.path.dirname(__file__), "providers.json")
+    with open(config_path, "r") as f:
+        return json.load(f)
+
+
+PROVIDERS = load_providers()
 
 MODULES = ["gpt-5.4", "gpt-5.4-nano", "DeepSeek-V3.2", "qwen3.6-plus"]
 
